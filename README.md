@@ -267,4 +267,141 @@
    ```
 
 ---
+
+# **Bundle 3**
+
+## **Exercise 1**
+
+### **Steps**
+
+1. **Create a new branch `ft/team-page`**:
+   ```bash
+   git checkout -b ft/team-page
+   ```
+
+2. **Create a new HTML page named `team.html` and add some changes**:
+   - Add content to the `team.html` file.
+   - Stage and commit the changes:
+     ```bash
+     git add team.html
+     git commit -m "Add team.html page"
+     ```
+
+3. **Push the changes and create a Pull Request (PR)**:
+   ```bash
+   git push origin ft/team-page
+   ```
+   - Open a PR for the `ft/team-page` branch.
+
+4. **Go back to the `main` branch**:
+   ```bash
+   git checkout main
+   ```
+
+5. **Create a new branch `ft/contact-page`**:
+   ```bash
+   git checkout -b ft/contact-page
+   ```
+
+6. **Cherry-pick the last commit from the `ft/team-page` branch**:
+   - Switch back to the `ft/team-page` branch and copy the commit hash using `git log`:
+     ```bash
+     git checkout ft/team-page
+     git log
+     ```
+   - Copy the hash of the last commit.
+
+   - Switch back to `ft/contact-page` and cherry-pick the commit:
+     ```bash
+     git checkout ft/contact-page
+     git cherry-pick <commit-hash>
+     ```
+
+7. **Add changes for the contact page, commit, and push**:
+   - Modify the `contact.html` file or add content:
+     ```bash
+     git add contact.html
+     git commit -m "Add contact page content"
+     git push origin ft/contact-page
+     ```
+   - Open a PR for the `ft/contact-page` branch.
+
+8. **Create a new branch `ft/faq-page` from `ft/contact-page`**:
+   ```bash
+   git checkout -b ft/faq-page
+   ```
+
+9. **Create a new `faq.html` page and add changes**:
+   - Add content to the `faq.html` file.
+   - Stage, commit, and push the changes:
+     ```bash
+     git add faq.html
+     git commit -m "Add FAQ page"
+     git push origin ft/faq-page
+     ```
+
+10. **Revert the last commit on `ft/team-page`**:
+    - Use the commit hash you copied earlier:
+      ```bash
+      git checkout ft/team-page
+      git revert <commit-hash>
+      ```
+    - Push the reverted changes and open a new PR:
+      ```bash
+      git push origin ft/team-page
+      ```
+
+---
+
+## **Exercise 2**
+
+### **Steps**
+
+1. **Create a new branch `ft/home-page-redesign` from `ft/faq-page`**:
+   ```bash
+   git checkout -b ft/home-page-redesign
+   ```
+
+2. **Go back to the `main` branch and make changes**:
+   - Switch to the `main` branch:
+     ```bash
+     git checkout main
+     ```
+   - Add changes to files, stage, commit, and push:
+     ```bash
+     git add .
+     git commit -m "Update main branch with new changes"
+     git push origin main
+     ```
+
+3. **Rebase `ft/home-page-redesign` onto the updated `main` branch**:
+   ```bash
+   git checkout ft/home-page-redesign
+   git rebase main
+   ```
+   - If conflicts occur, resolve them manually:
+     ```bash
+     git add <resolved-files>
+     git rebase --continue
+     ```
+
+4. **Add changes to the home page and commit**:
+   - Modify the `home.html` file:
+     ```bash
+     git add home.html
+     git commit -m "Redesign home page"
+     ```
+
+5. **Push the rebased branch**:
+   ```bash
+   git push origin ft/home-page-redesign
+   ```
+
+6. **Create a PR for the changes**:
+   - Open a Pull Request targeting the `main` branch.
+
+---
+
+
+
      
