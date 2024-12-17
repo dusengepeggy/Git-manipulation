@@ -401,6 +401,103 @@
    - Open a Pull Request targeting the `main` branch.
 
 ---
+# **Bundle 4**
+
+## **Exercise 1**
+
+### **Steps**
+
+1. **Checkout the `main` branch**:
+   ```bash
+   git checkout main
+   ```
+
+2. **Create a new repository on GitHub**:
+   - Go to GitHub and create a new repository.
+
+3. **Add the new repository as a second remote**:
+   - Copy the repository URL.
+   - Add it as a second remote named `git-copy`:
+     ```bash
+     git remote add git-copy <repo-url>
+     ```
+
+4. **Make changes to the home page**:
+   - Edit the file (e.g., `home.html`) and save the changes.
+
+5. **Commit the changes**:
+   ```bash
+   git add home.html
+   git commit -m "Update home page with new changes"
+   ```
+
+6. **Push changes to both remotes**:
+   - Push to `origin`:
+     ```bash
+     git push origin main
+     ```
+   - Push to `git-copy`:
+     ```bash
+     git push git-copy main
+     ```
+
+---
+
+## **Exercise 2**
+
+### **Steps**
+
+1. **Checkedout a new branch named `ft/footer`**:
+   ```bash
+   git checkout -b ft/footer
+   ```
+
+2. **Made and committed the changes**:
+   - Add some changes to the branch:
+     ```bash
+     git add .
+     git commit -m "Add initial footer changes"
+     ```
+   - Add more changes and commit again:
+     ```bash
+     git add .
+     git commit -m "Add additional footer updates"
+     ```
+
+3. **Pushed changes and created a PR**:
+   ```bash
+   git push origin ft/footer
+   ```
+   - Go to GitHub and create a Pull Request (PR) for the `ft/footer` branch.
+
+4. **Checkedout the `main` branch**:
+   ```bash
+   git checkout main
+   ```
+
+5. **Created a new branch named `ft/squashing`**:
+   ```bash
+   git checkout -b ft/squashing
+   ```
+
+6. **Squashed the changes from the `ft/footer` branch**:
+   - Merged the `ft/footer` branch with squash:
+     ```bash
+     git merge --squash ft/footer
+     ```
+   - Committed the squashed changes with a new message:
+     ```bash
+     git commit -m "footer changes squashing"
+     ```
+
+7. **Pushed the changes and create a PR**:
+   ```bash
+   git push origin ft/squashing
+   ```
+   - Go to GitHub and create a PR for the `ft/squashing` branch.
+
+---
+
 
 
 
