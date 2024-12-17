@@ -158,5 +158,250 @@
 5. **Request a Review and Merge the Pull Request:**
    - Assigned a reviewer to the Pull Request and request a review.
 
- 
+## Exercise 2
+
+### **Steps**
+
+### 1. Work on the `ft/service-redesign` branch
+1. **Checkout the `main` branch and pull the latest changes**:
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+
+2. **Create a new branch named `ft/service-redesign`**:
+   ```bash
+   git checkout -b ft/service-redesign
+   ```
+
+3. **Make changes to the `service.html` page**:
+   - Modify the file and save changes.
+   - Stage and commit the changes:
+     ```bash
+     git add service.html
+     git commit -m "Service page redesign changes"
+     ```
+
+4. **Push the changes to GitHub**:
+   ```bash
+   git push -u origin ft/service-redesign
+   ```
+
+5. **Create a Pull Request (PR)**:
+   - Open a new PR for the `ft/service-redesign` branch targeting the `main` branch.
+
+---
+
+### **2. Add conflicting changes to the `main` branch**
+1. **Checkout the `main` branch**:
+   ```bash
+   git checkout main
+   ```
+
+2. **Make new changes to the `service.html` file**:
+   - Modify the same part of the file that you changed in the `ft/service-redesign` branch. 
+   - Save, stage, and commit the changes:
+     ```bash
+     git add service.html
+     git commit -m "Conflicting changes to service.html on main branch"
+     ```
+
+3. **Push the changes to GitHub**:
+   ```bash
+   git push origin main
+   ```
+
+---
+
+### **3. Observe conflicts in the GitHub PR**
+- Go to the Pull Request you created for the `ft/service-redesign` branch.
+- You will now see that there are **merge conflicts** between the `ft/service-redesign` branch and the `main` branch.
+
+---
+
+### **4. Resolve the conflicts locally**
+1. **Checkout the `ft/service-redesign` branch**:
+   ```bash
+   git checkout ft/service-redesign
+   ```
+
+2. **Compare the `ft/service-redesign` branch with the `main` branch using `git diff`**:
+   ```bash
+   git diff main
+   ```
+
+   - This command shows the differences between the two branches.
+
+3. **Merge the `main` branch into `ft/service-redesign`**:
+   ```bash
+   git merge main
+   ```
+
+   - You will see **merge conflicts** in the `service.html` file.
+
+4. **Resolve the conflicts**:
+   - Open the conflicted file (e.g., `service.html`) in your code editor.
+   - Look for the conflict markers:
+     ```html
+     <<<<<<< HEAD
+     Changes from ft/service-redesign branch
+     =======
+     Changes from main branch
+     >>>>>>> main
+     ```
+   - Edit the file to keep the desired changes and remove the conflict markers.
+
+5. **Stage the resolved file**:
+   ```bash
+   git add service.html
+   ```
+
+6. **Commit the merge**:
+   ```bash
+   git commit -m "Resolved conflicts between main and ft/service-redesign"
+   ```
+
+7. **Push the changes to GitHub**:
+   ```bash
+   git push origin ft/service-redesign
+   ```
+
+---
+
+# **Bundle 3**
+
+## **Exercise 1**
+
+### **Steps**
+
+1. **Create a new branch `ft/team-page`**:
+   ```bash
+   git checkout -b ft/team-page
+   ```
+
+2. **Create a new HTML page named `team.html` and add some changes**:
+   - Add content to the `team.html` file.
+   - Stage and commit the changes:
+     ```bash
+     git add team.html
+     git commit -m "Add team.html page"
+     ```
+
+3. **Push the changes and create a Pull Request (PR)**:
+   ```bash
+   git push origin ft/team-page
+   ```
+   - Open a PR for the `ft/team-page` branch.
+
+4. **Go back to the `main` branch**:
+   ```bash
+   git checkout main
+   ```
+
+5. **Create a new branch `ft/contact-page`**:
+   ```bash
+   git checkout -b ft/contact-page
+   ```
+
+6. **Cherry-pick the last commit from the `ft/team-page` branch**:
+   - Switch back to the `ft/team-page` branch and copy the commit hash using `git log`:
+     ```bash
+     git checkout ft/team-page
+     git log
+     ```
+   - Copy the hash of the last commit.
+
+   - Switch back to `ft/contact-page` and cherry-pick the commit:
+     ```bash
+     git checkout ft/contact-page
+     git cherry-pick <commit-hash>
+     ```
+
+7. **Add changes for the contact page, commit, and push**:
+   - Modify the `contact.html` file or add content:
+     ```bash
+     git add contact.html
+     git commit -m "Add contact page content"
+     git push origin ft/contact-page
+     ```
+   - Open a PR for the `ft/contact-page` branch.
+
+8. **Create a new branch `ft/faq-page` from `ft/contact-page`**:
+   ```bash
+   git checkout -b ft/faq-page
+   ```
+
+9. **Create a new `faq.html` page and add changes**:
+   - Add content to the `faq.html` file.
+   - Stage, commit, and push the changes:
+     ```bash
+     git add faq.html
+     git commit -m "Add FAQ page"
+     git push origin ft/faq-page
+     ```
+
+10. **Revert the last commit on `ft/team-page`**:
+    - Use the commit hash you copied earlier:
+      ```bash
+      git checkout ft/team-page
+      git revert <commit-hash>
+      ```
+    - Push the reverted changes and open a new PR:
+      ```bash
+      git push origin ft/team-page
+      ```
+
+---
+
+## **Exercise 2**
+
+### **Steps**
+
+1. **Create a new branch `ft/home-page-redesign` from `ft/faq-page`**:
+   ```bash
+   git checkout -b ft/home-page-redesign
+   ```
+
+2. **Go back to the `main` branch and make changes**:
+   - Switch to the `main` branch:
+     ```bash
+     git checkout main
+     ```
+   - Add changes to files, stage, commit, and push:
+     ```bash
+     git add .
+     git commit -m "Update main branch with new changes"
+     git push origin main
+     ```
+
+3. **Rebase `ft/home-page-redesign` onto the updated `main` branch**:
+   ```bash
+   git checkout ft/home-page-redesign
+   git rebase main
+   ```
+   - If conflicts occur, resolve them manually:
+     ```bash
+     git add <resolved-files>
+     git rebase --continue
+     ```
+
+4. **Add changes to the home page and commit**:
+   - Modify the `home.html` file:
+     ```bash
+     git add home.html
+     git commit -m "Redesign home page"
+     ```
+
+5. **Push the rebased branch**:
+   ```bash
+   git push origin ft/home-page-redesign
+   ```
+
+6. **Create a PR for the changes**:
+   - Open a Pull Request targeting the `main` branch.
+
+---
+
+
+
      
