@@ -158,5 +158,113 @@
 5. **Request a Review and Merge the Pull Request:**
    - Assigned a reviewer to the Pull Request and request a review.
 
- 
+## Exercise 2
+
+### **Steps**
+
+### 1. Work on the `ft/service-redesign` branch
+1. **Checkout the `main` branch and pull the latest changes**:
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+
+2. **Create a new branch named `ft/service-redesign`**:
+   ```bash
+   git checkout -b ft/service-redesign
+   ```
+
+3. **Make changes to the `service.html` page**:
+   - Modify the file and save changes.
+   - Stage and commit the changes:
+     ```bash
+     git add service.html
+     git commit -m "Service page redesign changes"
+     ```
+
+4. **Push the changes to GitHub**:
+   ```bash
+   git push -u origin ft/service-redesign
+   ```
+
+5. **Create a Pull Request (PR)**:
+   - Open a new PR for the `ft/service-redesign` branch targeting the `main` branch.
+
+---
+
+### **2. Add conflicting changes to the `main` branch**
+1. **Checkout the `main` branch**:
+   ```bash
+   git checkout main
+   ```
+
+2. **Make new changes to the `service.html` file**:
+   - Modify the same part of the file that you changed in the `ft/service-redesign` branch. 
+   - Save, stage, and commit the changes:
+     ```bash
+     git add service.html
+     git commit -m "Conflicting changes to service.html on main branch"
+     ```
+
+3. **Push the changes to GitHub**:
+   ```bash
+   git push origin main
+   ```
+
+---
+
+### **3. Observe conflicts in the GitHub PR**
+- Go to the Pull Request you created for the `ft/service-redesign` branch.
+- You will now see that there are **merge conflicts** between the `ft/service-redesign` branch and the `main` branch.
+
+---
+
+### **4. Resolve the conflicts locally**
+1. **Checkout the `ft/service-redesign` branch**:
+   ```bash
+   git checkout ft/service-redesign
+   ```
+
+2. **Compare the `ft/service-redesign` branch with the `main` branch using `git diff`**:
+   ```bash
+   git diff main
+   ```
+
+   - This command shows the differences between the two branches.
+
+3. **Merge the `main` branch into `ft/service-redesign`**:
+   ```bash
+   git merge main
+   ```
+
+   - You will see **merge conflicts** in the `service.html` file.
+
+4. **Resolve the conflicts**:
+   - Open the conflicted file (e.g., `service.html`) in your code editor.
+   - Look for the conflict markers:
+     ```html
+     <<<<<<< HEAD
+     Changes from ft/service-redesign branch
+     =======
+     Changes from main branch
+     >>>>>>> main
+     ```
+   - Edit the file to keep the desired changes and remove the conflict markers.
+
+5. **Stage the resolved file**:
+   ```bash
+   git add service.html
+   ```
+
+6. **Commit the merge**:
+   ```bash
+   git commit -m "Resolved conflicts between main and ft/service-redesign"
+   ```
+
+7. **Push the changes to GitHub**:
+   ```bash
+   git push origin ft/service-redesign
+   ```
+
+---
      
