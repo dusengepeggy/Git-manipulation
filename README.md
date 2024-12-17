@@ -128,6 +128,35 @@
      git reset team.html
      git checkout -- team.html
      ```
+# **Bundle 2**
+
+## Exercise 1
+
+1. **Created a new branch named `ft/bundle-2`:**
+   - Create and switch to the branch:
+     ```bash
+     git checkout -b ft/bundle-2
+     ```
+
+2. **Added new changes to thr project:**
+   - Create a new file `services.html` and add some content to it.
+
+3. **Committed the changes:**
+   - Stage and commit the changes:
+     ```bash
+     git add services.html
+     git commit -m "Add services.html page"
+     ```
+
+4. **Created a Pull Request:**
+   - Push the branch to GitHub:
+     ```bash
+     git push -u origin ft/bundle-2
+     ```
+   - On GitHub, opened a Pull Request against the `main` branch.
+
+5. **Request a Review and Merge the Pull Request:**
+   - Assigned a reviewer to the Pull Request and request a review.
 
  
      
